@@ -20,6 +20,40 @@
         </ul>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const taskInput = document.getElementById('task-input');
+            const addBtn = document.getElementById('add-btn');
+            const taskList = document.getElementById('tasks-list');
+
+            // Função para adicionar tarefa
+            function addTask() {
+                const taskText = taskInput.value.trim();
+
+                if (taskText) {
+                    // Cria um novo elemento li
+                    const li = document.createElement('li');
+
+                    // Adiciona o texto da tarefa 
+                    li.textContent = taskText;
+
+                    // Adiciona à lista
+                    taskList.appendChild(li);
+
+                    // Limpa o input
+                    taskInput.value = '';
+                }
+            }
+
+            // Adiciona tarefa ao clicar no botão
+            addBtn.addEventListener('click', function(e) {
+                if (e.key === 'Enter') {
+                    addTask();
+                }
+            });
+        });
+    </script>
+
     <script src="script.js"></script>    
 </body>
 </html>
